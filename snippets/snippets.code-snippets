@@ -1,0 +1,556 @@
+{
+    "ButtonGroup(按钮组)": {
+        "prefix": "ev-button-group",
+        "body": [
+            "<ButtonGroup selectionMode=\"single\">",
+            "  <LinkButton iconCls=\"icon-add\" :toggle=\"true\" :selected=\"true\">Add</LinkButton>",
+            "  <LinkButton iconCls=\"icon-remove\" :toggle=\"true\">Remove</LinkButton>",
+            "  <LinkButton iconCls=\"icon-save\" :toggle=\"true\">Save</LinkButton>",
+            "  <LinkButton iconCls=\"icon-cut\" :disabled=\"true\">Cut</LinkButton>",
+            "</ButtonGroup>"
+        ],
+        "description": "ButtonGroup(按钮组)"
+    },
+    "Tree(树)": {
+        "prefix": "ev-tree",
+        "body": [
+            "<Tree :data=\"data\" @selectionChange=\"selection=$event\"></Tree>",
+            "<p v-if=\"selection\">选择: {{selection.text}}</p>"
+        ],
+        "description": "Tree(树)"
+    },
+    "Accordion(分类)": {
+        "prefix": "ev-accordion",
+        "body": [
+            "<Accordion style=\"height:250px\">",
+            "  <AccordionPanel :title=\"'Title1'\">",
+            "    <p>Content1</p>",
+            "  </AccordionPanel>",
+            "  <AccordionPanel :title=\"'Title2'\">",
+            "    <p>Content2</p>",
+            "  </AccordionPanel>",
+            "  <AccordionPanel :title=\"'Title3'\">",
+            "    <p>Content3</p>",
+            "  </AccordionPanel>",
+            "</Accordion>",
+            ""
+        ],
+        "description": "Accordion(分类)"
+    },
+    "Alert(消息)": {
+        "prefix": "ev-alert",
+        "body": [
+            "this.$messager.alert({",
+            "  title: \"Info\",",
+            "  icon: \"info\",",
+            "  msg: \"Here is a info message!\"",
+            "});"
+        ],
+        "description": "Alert(消息)"
+    },
+    "Confirm(确认对话框)": {
+        "prefix": "ev-confirm",
+        "body": [
+            "this.$messager.confirm({",
+            "  title: \"Confirm\",",
+            "  msg: \"Are you confirm this?\",",
+            "  result: r => {",
+            "    if (r) {",
+            "      alert(\"confirmed: \" + r);",
+            "    }",
+            "  }",
+            "});"
+        ],
+        "description": "Confirm(确认对话框)"
+    },
+    "Prompt(提示对话框)": {
+        "prefix": "ev-prompt",
+        "body": [
+            "this.$messager.prompt({",
+            "  title: \"Prompt\",",
+            "  msg: \"Please type something\",",
+            "  result: r => {",
+            "    if (r) {",
+            "      alert(\"you type: \" + r);",
+            "    }",
+            "  }",
+            "});"
+        ],
+        "description": "Prompt(提示对话框)"
+    },
+    "ComboBox(下拉列表框) ": {
+        "prefix": "ev-combo-box",
+        "body": [
+            "<Label for=\"c1\" align=\"top\">选择一个值:</Label>",
+            "<ComboBox inputId=\"c1\" v-model=\"value\" :data=\"data\"></ComboBox>",
+            "<p v-if=\"value\">选择值: {{value}}</p>"
+        ],
+        "description": "ComboBox(下拉列表框) "
+    },
+    "TimeSpinner(时间微调框)": {
+        "prefix": "ev-time",
+        "body": [
+            "<TimeSpinner placeholder=\"Select a time\" v-model=\"time\" min=\"08:30\" max=\"18:10\">",
+            "</TimeSpinner>",
+            "<p v-if=\"time\">选择: {{time}}</p>"
+        ],
+        "description": "TimeSpinner(时间微调框)"
+    },
+    "Form(基本表单)": {
+        "prefix": "ev-form",
+        "body": [
+            "<Form ref=\"form\" :model=\"user\" :rules=\"rules\" @validate=\"errors=$event\">",
+            "  <div style=\"margin-bottom:20px\">",
+            "    <Label for=\"name\" align=\"top\">Name:</Label>",
+            "    <TextBox inputId=\"name\" name=\"name\" v-model=\"user.name\"></TextBox>",
+            "    <div class=\"error\">{{getError('name')}}</div>",
+            "  </div>",
+            "  <div style=\"margin-bottom:20px\">",
+            "    <Label for=\"email\" align=\"top\">Email:</Label>",
+            "    <TextBox inputId=\"email\" name=\"email\" v-model=\"user.email\"></TextBox>",
+            "    <div class=\"error\">{{getError('email')}}</div>",
+            "  </div>",
+            "  <div style=\"margin-bottom:20px\">",
+            "    <Label for=\"hero\" align=\"top\">Select a hero:</Label>",
+            "    <ComboBox inputId=hero name=\"hero\" :data=\"heroes\" v-model=\"user.hero\"></ComboBox>",
+            "    <div class=\"error\">{{getError('hero')}}</div>",
+            "  </div>",
+            "  <div style=\"margin-bottom:20px\">",
+            "    <CheckBox inputId=\"accept\" name=\"accept\" v-model=\"user.accept\"></CheckBox>",
+            "    <Label for=\"accept\">Accept Me</Label>",
+            "  </div>",
+            "  <div style=\"margin-bottom:20px\">",
+            "    <LinkButton :disabled=\"false\" @click=\"submitForm()\">Submit</LinkButton>",
+            "  </div>",
+            "</Form>"
+        ],
+        "description": "Form(基本表单)"
+    },
+    "Resizable(调整大小)": {
+        "prefix": "ev-resizable",
+        "body": [
+            "<div v-Resizable=\"{minWidth:100,minHeight:100}\" class=\"item\" >",
+            "  <div style=\"padding:20px;text-align:center\">Resize Me</div>",
+            "</div>"
+        ],
+        "description": "Resizable(调整大小)"
+    },
+    "Droppable(放置)": {
+        "prefix": "ev-droppable",
+        "body": [
+            "<div class=\"dragitem\" v-Draggable>",
+            "  <p style=\"text-align:center\">Drag me</p>",
+            "</div>",
+            "<div class=\"droparea\" v-Droppable=\"dropOpts\" :class=\"{'over':isover,'dropped':dropped}\">",
+            "  <p style=\"text-align:center\">Drop here</p>",
+            "</div>"
+        ],
+        "description": "Droppable(放置)"
+    },
+    "Tooltip(提示框)": {
+        "prefix": "ev-tooltip",
+        "body": [
+            "<span v-Tooltip=\"'This is a tooltip.'\">Hover Me</span>"
+        ],
+        "description": "Tooltip(提示框)"
+    },
+    "RadioButton(单选按钮)": {
+        "prefix": "ev-radio-button",
+        "body": [
+            "<div v-for=\"fruit in fruits\" :key=\"fruit\" style=\"margin-bottom:10px\">",
+            "  <RadioButton name=\"group1\" :inputId=\"fruit\" :value=\"fruit\" v-model=\"value\"></RadioButton>",
+            "  <Label :for=\"fruit\">{{fruit}}</Label>",
+            "</div>"
+        ],
+        "description": "RadioButton(单选按钮)"
+    },
+    "CheckBox(复选框)": {
+        "prefix": "ev-check-box",
+        "body": [
+            "<div v-for=\"fruit in fruits\" :key=\"fruit\" style=\"margin-bottom:10px\">",
+            "  <CheckBox :inputId=\"fruit\" :value=\"fruit\" :multiple=\"true\" v-model=\"values\"></CheckBox>",
+            "  <Label :for=\"fruit\">{{fruit}}</Label>",
+            "</div>",
+            "<p v-if=\"values\">你选择的是: {{values}}</p>"
+        ],
+        "description": "CheckBox(复选框)"
+    },
+    "PasswordBox(密码框)": {
+        "prefix": "ev-password-box",
+        "body": [
+            "<div style=\"margin-bottom:20px\">",
+            "  <TextBox v-model=\"username\" placeholder=\"Username\" iconCls=\"icon-man\"></TextBox>",
+            "</div>",
+            "<div style=\"margin-bottom:20px\">",
+            "  <PasswordBox v-model=\"password\" placeholder=\"Password\"></PasswordBox>",
+            "</div>"
+        ],
+        "description": "PasswordBox(密码框)"
+    },
+    "TreeGrid(树形表格)": {
+        "prefix": "ev-tree-grid",
+        "body": [
+            "<TreeGrid style=\"height:250px\" :data=\"data\" idField=\"id\" treeField=\"name\">",
+            "<GridColumn field=\"name\" title=\"Name\"></GridColumn>",
+            "<GridColumn field=\"size\" title=\"Size\"></GridColumn>",
+            "<GridColumn field=\"date\" title=\"Date\"></GridColumn>",
+            "</TreeGrid>"
+        ],
+        "description": "TreeGrid(树形表格)"
+    },
+    "Menu(菜单)": {
+        "prefix": "ev-menu",
+        "body": [
+            "<Menu :inline=\"true\" @itemClick=\"onItemClick($event)\">",
+            "  <MenuItem value=\"new\" text=\"New\"></MenuItem>",
+            "  <MenuItem text=\"Open\">",
+            "    <SubMenu>",
+            "      <MenuItem value=\"word\" text=\"Word\"></MenuItem>",
+            "      <MenuItem value=\"excel\" text=\"Excel\"></MenuItem>",
+            "      <MenuItem value=\"ppt\" text=\"PowerPoint\"></MenuItem>",
+            "    </SubMenu>",
+            "  </MenuItem>",
+            "  <MenuItem value=\"save\" text=\"Save\" iconCls=\"icon-save\"></MenuItem>",
+            "  <MenuItem value=\"print\" text=\"Print\" iconCls=\"icon-print\" :disabled=\"true\"></MenuItem>",
+            "  <Menu-sep></Menu-sep>",
+            "  <MenuItem value=\"exit\" text=\"Exit\"></MenuItem>",
+            "</Menu>"
+        ],
+        "description": "Menu(菜单)"
+    },
+    "Slider(滑动条)": {
+        "prefix": "ev-slider",
+        "body": [
+            "<Slider style=\"width:300px;\" :value=\"0\" :showTip=\"true\" :rule=\"[0,'|',25,'|',50,'|',75,'|',100]\"></Slider>"
+        ],
+        "description": "Slider(滑动条)"
+    },
+    "Layout(布局)": {
+        "prefix": "ev-layout",
+        "body": [
+            "<Layout style=\"width:700px;height:250px;\">",
+            "  <LayoutPanel region=\"north\" style=\"height:50px;\">",
+            "    <div class=\"title\">North Region</div>",
+            "  </LayoutPanel>",
+            "  <LayoutPanel region=\"south\" style=\"height:50px;\">",
+            "    <div class=\"title\">South Region</div>",
+            "  </LayoutPanel>",
+            "  <LayoutPanel region=\"west\" style=\"width:120px;\">",
+            "    <div class=\"title\">West Region</div>",
+            "  </LayoutPanel>",
+            "  <LayoutPanel region=\"east\" style=\"width:120px;\">",
+            "    <div class=\"title\">East Region</div>",
+            "  </LayoutPanel>",
+            "  <LayoutPanel region=\"center\" style=\"height:100%\">",
+            "    <div class=\"title\">Center Region</div>",
+            "  </LayoutPanel>",
+            "</Layout>"
+        ],
+        "description": "Layout(布局)"
+    },
+    "Dialog(对话框窗口) ": {
+        "prefix": "ev-dialog",
+        "body": [
+            "<Dialog ref=\"d1\"",
+            "        :title=\"'Draggable And Resizable'\"",
+            "        :dialogStyle=\"{width:'400px',height:'200px'}\"",
+            "        :modal=\"true\"",
+            "        :draggable=\"true\"",
+            "        :resizable=\"true\">",
+            "  <p style=\"text-align:center;margin:50px 0;font-size:16px\">对话框内容。</p>",
+            "</Dialog>"
+        ],
+        "description": "Dialog(对话框窗口) "
+    },
+    "TextBox(文本框)": {
+        "prefix": "ev-text-box",
+        "body": [
+            "<div style=\"margin-bottom:10px;display:inline-block;margin-right:1em\">",
+            "  <Label for=\"t1\" align=\"top\">First Name:</Label>",
+            "  <TextBox inputId=\"t1\" v-model=\"fname\" iconCls=\"icon-man\" placeholder=\"First name\"></TextBox>",
+            "</div><div style=\"margin-bottom:10px;display:inline-block\">",
+            "  <Label for=\"t2\" align=\"top\">Last Name:</Label>",
+            "  <TextBox inputId=\"t2\" v-model=\"lname\" placeholder=\"Last name\"></TextBox>",
+            "</div>"
+        ],
+        "description": "TextBox(文本框)"
+    },
+    "ProgressBar(进度条)": {
+        "prefix": "ev-progress-bar",
+        "body": [
+            "<div style=\"margin-bottom:20px\">",
+            "  <ProgressBar :value=\"40\" :showValue=\"true\"></ProgressBar>",
+            "</div>",
+            "<div style=\"margin-bottom:20px\">",
+            "  <ProgressBar :value=\"70\" :showValue=\"false\">Processing 70%</ProgressBar>",
+            "</div>",
+            "<div style=\"margin-bottom:20px\">",
+            "  <div style=\"text-align:right\">50%</div>",
+            "  <ProgressBar :value=\"50\" :showValue=\"false\" barCls=\"c6\" style=\"height:4px\"></ProgressBar>",
+            "</div>"
+        ],
+        "description": "ProgressBar(进度条)"
+    },
+    "DateTimeSpinner(日期时间微调框)": {
+        "prefix": "ev-datetime",
+        "body": [
+            "<Label for=\"t1\">开始:</Label>",
+            "<DateTimeSpinner inputId=\"t1\" v-model=\"time1\"></DateTimeSpinner>"
+        ],
+        "description": "DateTimeSpinner(日期时间微调框)"
+    },
+    "SplitButton(分割按钮)": {
+        "prefix": "ev-split-button",
+        "body": [
+            "<SplitButton text=\"Help\" :plain=\"true\" iconCls=\"icon-help\">",
+            "  <Menu>",
+            "    <MenuItem text=\"Help\"></MenuItem>",
+            "    <MenuItem text=\"Update\"></MenuItem>",
+            "    <MenuItem text=\"About\"></MenuItem>",
+            "  </Menu>",
+            "</SplitButton>"
+        ],
+        "description": "SplitButton(分割按钮)"
+    },
+    "Pagination(分页)": {
+        "prefix": "ev-pagination",
+        "body": [
+            "<Panel :bodyStyle=\"{padding:'20px'}\">",
+            "  <p>Total: {{total}}</p>",
+            "  <p>Page Number: {{pageNumber}}</p>",
+            "  <p>Page Size: {{pageSize}}</p>",
+            "  <template slot=\"footer\">",
+            "    <Pagination :total=\"total\" :pageSize=\"pageSize\" :pageNumber=\"pageNumber\" @pageChange=\"onPageChange($event)\"></Pagination>",
+            "  </template>",
+            "</Panel>"
+        ],
+        "description": "Pagination(分页)"
+    },
+    "ComboTree(树形下拉框)": {
+        "prefix": "ev-combo-tree",
+        "body": [
+            "<ComboTree :data=\"data\" v-model=\"value\" placeholder=\"Select a node\">",
+            "  <Tree slot=\"tree\"></Tree>",
+            "</ComboTree>"
+        ],
+        "description": "ComboTree(树形下拉框)"
+    },
+    "DataList(数据列表)": {
+        "prefix": "ev-data-list",
+        "body": [
+            "<DataList style=\"width:550px;height:250px\" :data=\"data\" selectionMode=\"single\" @selectionChange=\"selection=$event\">",
+            "  <template slot-scope=\"scope\">",
+            "    <div class=\"product f-row\">",
+            "      <img :src=\"getImage(scope.row)\">",
+            "      <div class=\"detail\">",
+            "        <p>{{scope.row.itemid}} - {{scope.row.name}}</p>",
+            "        <p>{{scope.row.attr}}</p>",
+            "        <p>List Price: {{scope.row.listprice}}</p>",
+            "      </div>",
+            "    </div>",
+            "  </template>",
+            "</DataList>"
+        ],
+        "description": "DataList(数据列表)"
+    },
+    "Calendar(日历)": {
+        "prefix": "ev-calendar",
+        "body": [
+            "<Calendar :selection=\"value\" @selectionChange=\"value=$event\" style=\"width:250px;height:250px\"></Calendar>",
+            "<p>{{value | formatDate}}</p>"
+        ],
+        "description": "Calendar(日历)"
+    },
+    "SideMenu(侧栏菜单)": {
+        "prefix": "ev-side-menu",
+        "body": [
+            "<SideMenu :style=\"{width:width+'px'}\" :data=\"menus\" :collapsed=\"collapsed\" @selectionChange=\"selection=$event\"></SideMenu>"
+        ],
+        "description": "SideMenu(侧栏菜单)"
+    },
+    "Panel(面板)": {
+        "prefix": "ev-panel",
+        "body": [
+            "<Panel title=\"Panel Title\" :collapsible=\"true\" :bodyStyle=\"{padding:'20px'}\" style=\"height:200px\">",
+            "  <p>Panel Content。</p>",
+            "</Panel>"
+        ],
+        "description": "Panel(面板)"
+    },
+    "DataGrid(数据表格)": {
+        "prefix": "ev-data-grid",
+        "body": [
+            "<DataGrid :data=\"data\" style=\"width:600px;height:250px\">",
+            "  <GridColumn field=\"itemid\" title=\"Item ID\" :frozen=\"true\"></GridColumn>",
+            "  <GridColumn field=\"name\" title=\"Name\" :frozen=\"true\"></GridColumn>",
+            "  <GridColumn field=\"listprice\" title=\"List Price\" align=\"right\" width=\"100\"></GridColumn>",
+            "  <GridColumn field=\"unitcost\" title=\"Unit Cost\" align=\"right\" width=\"100\"></GridColumn>",
+            "  <GridColumn field=\"attr\" title=\"Attribute\" width=\"200\"></GridColumn>",
+            "  <GridColumn field=\"status\" title=\"Status\" width=\"100\"></GridColumn>",
+            "</DataGrid>"
+        ],
+        "description": "DataGrid(数据表格)"
+    },
+    "ComboGrid(数据表格下拉框)": {
+        "prefix": "ev-combo-grid",
+        "body": [
+            "<ComboGrid",
+            "    valueField=\"itemid\" ",
+            "    textField=\"name\" ",
+            "    v-model=\"value\"",
+            "    :data=\"data\"",
+            "    :panelStyle=\"{width:'500px'}\">",
+            "  <DataGrid slot=\"grid\" :border=\"false\">",
+            "    <GridColumn field=\"itemid\" title=\"Item ID\"></GridColumn>",
+            "    <GridColumn field=\"name\" title=\"Name\"></GridColumn>",
+            "    <GridColumn field=\"listprice\" title=\"List Price\" align=\"right\"></GridColumn>",
+            "    <GridColumn field=\"unitcost\" title=\"Unit Cost\" align=\"right\"></GridColumn>",
+            "    <GridColumn field=\"attr\" title=\"Attribute\" width=\"30%\"></GridColumn>",
+            "    <GridColumn field=\"status\" title=\"Status\" align=\"center\"></GridColumn>",
+            "  </DataGrid>",
+            "</ComboGrid>"
+        ],
+        "description": "ComboGrid(数据表格下拉框)"
+    },
+    "DateBox(日期输入框)": {
+        "prefix": "ev-date-box",
+        "body": [
+            "<DateBox v-model=\"value\"></DateBox>",
+            "<p v-if=\"value\">{{value | formatDate}}</p>"
+        ],
+        "description": "DateBox(日期输入框)"
+    },
+    "TagBox(标签框)": {
+        "prefix": "ev-tag-box",
+        "body": [
+            "<TagBox v-model=\"value\" style=\"width:300px;\"",
+            "  valueField=\"id\"",
+            "  textField=\"text\"",
+            "  placeholder=\"Select a Language\"",
+            "  :limitToList=\"true\"",
+            "  :hasDownArrow=\"true\"",
+            "  :data=\"data\">",
+            "</TagBox>"
+        ],
+        "description": "TagBox(标签框)"
+    },
+    "SwitchButton(开关按钮)": {
+        "prefix": "ev-switch-button",
+        "body": [
+            "<div class=\"fitem\">",
+            "  <Label for=\"s3\">订阅:</Label>",
+            "  <SwitchButton inputId=\"s3\" v-model=\"subscribed\"></SwitchButton>",
+            "</div>"
+        ],
+        "description": "SwitchButton(开关按钮)"
+    },
+    "LinkButton(链接按钮)": {
+        "prefix": "ev-link-button",
+        "body": [
+            "<LinkButton iconCls=\"icon-save\">Save</LinkButton>"
+        ],
+        "description": "LinkButton(链接按钮)"
+    },
+    "NumberBox(数字框)": {
+        "prefix": "ev-number-box",
+        "body": [
+            "<div style=\"margin-bottom:10px\">",
+            "  <Label for=\"n2\" align=\"top\">List Price:</Label>",
+            "  <NumberBox inputId=\"n2\" :value=\"234.56\" :precision=\"2\" :spinners=\"false\"></NumberBox>",
+            "</div>"
+        ],
+        "description": "NumberBox(数字框)"
+    },
+    "Draggable(拖动)": {
+        "prefix": "ev-draggable",
+        "body": [
+            "<div v-Draggable=\"{drag:onDrag}\" :style=\"dragStyle\">",
+            "  <p style=\"text-align:center\">Drag Me</p>",
+            "</div>"
+        ],
+        "description": "Draggable(拖动)"
+    },
+    "VirtualScroll(虚拟滚动条)": {
+        "prefix": "ev-virtual-scroll",
+        "body": [
+            "<VirtualScroll style=\"height:250px\"",
+            "  :data=\"data\"",
+            "  :total=\"total\"",
+            "  :pageSize=\"pageSize\"",
+            "  :rowHeight=\"rowHeight\"",
+            "  @update=\"items=$event\">",
+            "  <div v-for=\"item in items\" :key=\"item.id\" class=\"item f-row\">",
+            "    <div class=\"num\">{{item.id}}</div>",
+            "    <div>",
+            "      <div class=\"name\">{{item.name}}</div>",
+            "      <div class=\"desp\">{{item.desp}}</div>",
+            "    </div>",
+            "  </div>",
+            "</VirtualScroll>"
+        ],
+        "description": "VirtualScroll(虚拟滚动条)"
+    },
+    "Tabs(选项卡)": {
+        "prefix": "ev-tabs",
+        "body": [
+            "<Tabs style=\"height:250px\">",
+            "  <TabPanel :title=\"'Tab1'\">",
+            "    <p>Tab Panel1</p>",
+            "  </TabPanel>",
+            "  <TabPanel :title=\"'Tab2'\">",
+            "    <p>Tab Panel2</p>",
+            "  </TabPanel>",
+            "  <TabPanel :title=\"'Tab3'\">",
+            "    <p>Tab Panel3</p>",
+            "  </TabPanel>",
+            "  <TabPanel :title=\"'Help'\" :closable=\"true\" iconCls=\"icon-help\">",
+            "    <p>这是帮助内容。</p>",
+            "  </TabPanel>",
+            "</Tabs>"
+        ],
+        "description": "Tabs(选项卡)"
+    },
+    "MenuButton(菜单按钮)": {
+        "prefix": "ev-menu-button",
+        "body": [
+            "<MenuButton text=\"Help\" :plain=\"true\" iconCls=\"icon-help\">",
+            "  <Menu>",
+            "    <MenuItem text=\"Help\"></MenuItem>",
+            "    <MenuItem text=\"Update\"></MenuItem>",
+            "    <MenuItem text=\"About\"></MenuItem>",
+            "  </Menu>",
+            "</MenuButton>"
+        ],
+        "description": "MenuButton(菜单按钮)"
+    },
+    "SearchBox(搜索框)": {
+        "prefix": "ev-search-box",
+        "body": [
+            "<SearchBox style=\"width:300px\"",
+            "  placeholder=\"Input something here\" ",
+            "  v-model=\"value\"",
+            "  @search=\"onSearch($event)\">",
+            "  <Addon>",
+            "  <span v-if=\"value\" class=\"textbox-icon icon-clear\" title=\"Clear value\" @click=\"value=null\"></span>",
+            "  </Addon>",
+            "  <Menu>",
+            "    <MenuItem value=\"all\" text=\"All News\" iconCls=\"icon-ok\"></MenuItem>",
+            "    <MenuItem value=\"sports\" text=\"Sports News\" iconCls=\"icon-man\"></MenuItem>",
+            "  </Menu>",
+            "</SearchBox>"
+        ],
+        "description": "SearchBox(搜索框)"
+    },
+    "EasyUI": {
+        "prefix": "ev-import",
+        "body": [
+            "import 'vx-easyui/dist/themes/default/easyui.css';",
+            "import 'vx-easyui/dist/themes/icon.css';",
+            "import 'vx-easyui/dist/themes/vue.css';",
+            "import EasyUI from 'vx-easyui';",
+            "",
+            "Vue.use(EasyUI);"
+        ],
+        "description": "EasyUI"
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "name": "easyui-vue-snippets",
+    "displayName": "easyui-vue-snippets",
+    "description": "vue code snippets for easyui",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "vue",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}
